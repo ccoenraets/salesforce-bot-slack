@@ -23,8 +23,6 @@ let formatAccounts = accounts => {
 
 let formatContacts = contacts => {
 
-    console.log("formatContacts");
-
     if (contacts && contacts.length>0) {
         let attachments = [];
         contacts.forEach(contact => {

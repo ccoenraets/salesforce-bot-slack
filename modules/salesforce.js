@@ -85,7 +85,6 @@ let getTopOpportunities = count => {
                 console.error(err);
                 reject("An error as occurred");
             } else {
-                console.log(resp.records);
                 resolve(resp.records);
             }
         });
