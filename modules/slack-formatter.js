@@ -28,10 +28,10 @@ let formatContacts = contacts => {
         contacts.forEach(contact => {
             let fields = [];
             fields.push({title: "Name", value: contact.get("Name"), short:true});
-            fields.push({title: "Link", value: "https://login.salesforce.com/" + contact.getId(), short:true});
+            fields.push({title: "Email", value: contact.get("Email"), short:true});
             fields.push({title: "Phone", value: contact.get("Phone"), short:true});
             fields.push({title: "Mobile", value: contact.get("MobilePhone"), short:true});
-            fields.push({title: "Email", value: contact.get("Email"), short:true});
+            fields.push({title: "Link", value: "https://login.salesforce.com/" + contact.getId(), short:false});
             attachments.push({color: color, fields: fields});
         });
         return attachments;
@@ -45,9 +45,9 @@ let formatContact = contact => {
 
     let fields = [];
     fields.push({title: "Name", value: contact.get("FirstName") + " " + contact.get("LastName"), short:true});
-    fields.push({title: "Link", value: "https://login.salesforce.com/" + contact.getId(), short:true});
-    fields.push({title: "Title", value: contact.get("Title"), short:true});
     fields.push({title: "Phone", value: contact.get("Phone"), short:true});
+    fields.push({title: "Title", value: contact.get("Title"), short:false});
+    fields.push({title: "Link", value: "https://login.salesforce.com/" + contact.getId(), short:false});
     return [{color: color, fields: fields}];
 
 };
@@ -59,11 +59,10 @@ let formatOpportunities = opportunities => {
         opportunities.forEach(opportunity => {
             let fields = [];
             fields.push({title: "Opportunity", value: opportunity.get("Name"), short:true});
-            fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.getId(), short:true});
             fields.push({title: "Stage", value: opportunity.get("StageName"), short:true});
-            fields.push({title: "Close Date", value: opportunity.get("CloseDate"), short:true});
             fields.push({title: "Amount", value: new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(opportunity.get("Amount")), short:true});
             fields.push({title: "Probability", value: opportunity.get("Probability") + "%", short:true});
+            fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.getId(), short:false});
             attachments.push({color: color, fields: fields});
         });
         return attachments;
