@@ -177,7 +177,7 @@ controller.hears(['create contact', 'new contact'], 'direct_message,direct_menti
 
 });
 
-// To keep Heroku's awake
+// To keep Heroku awake
 http.createServer(function(request, response) {
     response.writeHead(200, {'Content-Type': 'text/plain'});
     response.end('Ok, dyno is awake.');
